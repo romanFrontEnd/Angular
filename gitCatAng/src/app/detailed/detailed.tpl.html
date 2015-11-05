@@ -1,0 +1,11 @@
+
+<a ui-sref="home">Back</a>
+<ul class="collection">
+    <li ng-repeat="contributor in contributors" class="collection-item avatar listItem">
+        <img class="circle responsive-img" ng-src="{{contributor.avatar_url}}"/>
+        <span class="title">{{contributor.name | uppercase}}</span>
+        <p>{{contributor.login}}<br>
+            {{contributor.type}}
+        </p>
+    </li>
+</ul>

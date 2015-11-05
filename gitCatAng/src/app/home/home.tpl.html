@@ -1,0 +1,45 @@
+<div class="progress" ng-hide='repositories.length'>
+	<div class="indeterminate"></div>
+</div>
+<a href="" ng-click="order('id')">Order by Id</a>
+<ul class="collection" ng-show='repositories.length'>
+	<li ng-repeat="rep in repositories | orderBy:predicate:reverse | offset: currentPage*itemsPerPage | limitTo: itemsPerPage"
+		class="collection-item avatar listItem listItemCatalogue">
+        <div class="container-fluid">
+            <div class="row">
+                <img class="circle responsive-img" ng-src="{{rep.owner.avatar_url}}"/>
+                <p>
+                    <strong>{{rep.owner.type}}</strong> {{rep.owner.login}}
+                </p>
+                <span class="title">Repository name: <strong>{{rep.name | uppercase}}</strong></span>
+            </div>
+            <div class="row clip">
+                <h5>Repo description:</h5>
+                <p>{{rep.description}}</p>
+            </div>
+            <div class="row">
+                <a class="btn btn-primary btn-lg active appBtn" role="button" href="{{rep.owner.html_url}}" target="_blank">{{rep.name}}></a>
+                <a ui-sref="detail({contributorsUrl:rep.contributors_url})" class="btn btn-info appBtn" role="button" > Contributors ></a>
+                <a href="#" ng-click='makeFavourite(rep.id)' ng-hide='rep.isFavourite' class="secondary-content"><i class="fa fa-star-o fa-2x" ></i></a>
+                <a href="#" ng-show='rep.isFavourite'ng-click='makeFavourite(rep.id)'  class="secondary-content"><i class="fa fa-star fa-2x"></i></a>
+            </div>
+        </div>
+
+	</li>
+</ul>
+<ul class="pagination center-align" ng-show='repositories.length'>
+	<li ng-class="prevPageDisabled()">
+		<a href ng-click="prevPage()">
+			<i class="fa fa-chevron-left"></i>
+		</a>
+	</li>
+	<li ng-repeat="n in pageCount() track by $index"
+		ng-class="{active: $index == currentPage}" ng-click="setPage($index)" class="waves-effect">
+		<a href>{{$index+1}}</a>
+	</li>
+	<li ng-class="nextPageDisabled()" class="waves-effect">
+		<a href ng-click="nextPage()">
+			<i class="fa fa-chevron-right"></i>
+		</a>
+	</li>
+</ul>

@@ -1,0 +1,14 @@
+<ul class="collection">
+    <li ng-show="favorites.length > 0" ng-repeat="rep in favorites"
+        class="collection-item avatar listItem"> <!-- track by $index-->
+        <img class="circle responsive-img" ng-src="{{rep.owner.avatar_url}}"/>
+        <span class="title">{{rep.name | uppercase}}</span>
+        <p>{{rep.owner.login}}<br>
+            {{rep.owner.type}}
+        </p>
+        <p>{{rep.description}}</p>
+        <p ><a class="btn btn-primary btn-lg active" role="button" href="{{rep.url}}" target="_blank">Go to repository>>></a></p>
+        <p><a ui-sref="detail({contributorsUrl:rep.contributors_url})" class="btn btn-default btn-lg active" > Contributors >>></a></p>
+    </li>
+</ul>
+<div ng-show="favorites.length || favorites.length == 0" ng-hide="favorites.length > 0"> No favorites yet</div>

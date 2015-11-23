@@ -1,0 +1,19 @@
+Developer Test 
+Goals:
+1.	Create a web-app that queries a github service API (https://developer.github.com/v3/repos/) for repositories catalog content, parses the JSON-formatted response and displays the data. The data consists of a list of repositories that should be shown in a vertical scrolling list. 
+2.	App should contain at least 3 pages (Repositories list, favorite list, detailed information with contributors list) 
+3.	The UI is adaptive to desktop/mobile portrait and landscape orientations. ?
+4.	In the repositories list show the repository name, repository description, repository link, also owner avatar and owner name.
+5.	Each list item should be interactive 
+5.1.	Button to show contributors list, which should contain contributor avatar, name, url and any related information. Contributor list should be shown in another view, with possibility to go back.
+5.2.	Button to mark/unmark repository as favorite. This info should be available after page reloads.
+6.	Add sort functionality by repo id.
+7.	Add pagination functionality.
+8.	For list of favorites repositories - please add offline functionality (Cache images, save data within a local persistence store, etc.) ?
+Optional 
+1.	Separate your app’s user interaction into a start and a catalog view. ?
+2.	Implement navigation functionality with Angular UI router
+3.	Create a single header that will stay fixed on all Screens and Transitions, when the user ?traverses between the views ?
+4.	Cover code with Jasmine (or any various test frameworks on your choice) unit-tests
+Requirements 
+You may use vendor resources to implement your solution faster.? Also when submitting your code, please add information about the IDE you've used during the test. Therefore please make sure that you consider the official guidelines to provide a good read of your code via consistent code style and in-line documentation.? To ensure estimated time of your work, please create public repository where you will place your code after finishing your task. Final commit date will be considered as the end time of the task. Probably you will use some kind of HTTP server for this task, so be sure that you setup it before starting. Otherwise you always can use command - python -m SimpleHTTPServer 3000, which will start server at current catalogue, an will be available at localhost:3000.

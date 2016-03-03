@@ -1,4 +1,4 @@
-Install all modules tha we need:
+Install all modules:
 npm install
 bower install // npm install bower -g if errors
 grunt build // to build our project
